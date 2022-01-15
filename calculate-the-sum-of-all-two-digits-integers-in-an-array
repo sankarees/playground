@@ -1,0 +1,29 @@
+/*
+calculate-the-sum-of-all-two-digits-integers-in-an-array
+
+Calculate the sum of all integers in an array which contain two digits. For example:
+
+int[] arr1 = {1, 23, 4, 55};
+int[] arr2 = {2, 5, -66, 23};
+The result for the first array should be 23 + 55 = 78, while the result for the second array should be -66 + 23 = -43.
+*/
+
+package myplayground;
+
+public class SumOfTwoDigits {
+
+	public static void main(String[] args) {
+		System.out.println("Sum of two digits (+/-): " + SumOfTwoDigits.getSumOfTwoDigits(new int[] {2, 5, -66, 23}));
+	}
+
+	public static int getSumOfTwoDigits(int[] numbers) {
+		int sum = 0;
+		for (int number : numbers) {
+			int divident = (number < 0 ? number * -1 : number) / 10;
+			if (divident > 0 && divident < 10) {
+				sum += number;
+			}
+		}
+		return sum;
+	}
+}
